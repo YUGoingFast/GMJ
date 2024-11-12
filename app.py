@@ -24,6 +24,9 @@ def BAT():
             fname = request.form['fname']
             sname = request.form['sname']
             password = request.form['password']
+            if email == '' or fname == '' or sname == '' or password == '':
+                return "Missing credentials"
+            add_tutor(fname, sname, email, password)
     return render_template("become-a-tutor.html")
 
 @app.route("/help")

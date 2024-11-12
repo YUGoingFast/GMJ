@@ -27,3 +27,5 @@ def add_tutor(fname, sname, email, password):
     conn = sqlite3.connect('GMJ.db')
     cursor = conn.cursor()
     cursor.execute("INSERT INTO tutors (FirstName, Surname, Email, Password) VALUES (?, ?, ?, ?)", (fname, sname, email, password))
+    conn.commit()
+    conn.close()
