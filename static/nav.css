@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost' , sans-serif;
+}
+
+/* Navigation bar */
+
+.navbar {
+    display: flex;
+    background-color: #2c5646;
+    padding: 37px;
+    margin-top: -8px;
+    margin-bottom: 2em;
+    width: auto ;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 1515px;
+    margin-right: 25em;
+}
+
+.Left {
+    display: flex;
+    gap: 4em;
+    font-size: 24px;
+}
+
+.Right {
+    position: relative;
+    display: flex;
+    gap: 4em;
+    font-size: 24px;
+    left: 90px;
+}
+
+button {
+    font-size: 20px;
+}
+
+.logo {
+    width: auto;
+    height: 99px;
+    margin-top: 17px;
+}
+
+.HIW-link {
+    color: white;
+    text-decoration: none;
+}
+
+.FAT-link {
+    color: white;
+    text-decoration: none;
+}
+
+.BAT-link {
+    color: white;
+    text-decoration: none;
+}
+
+.help-link {
+    color: white;
+    text-decoration: none;
+}
+
+/*-------------------------------------------------------------------------*/
+
+/*Home page */
+
+.circle1 {
+    position:relative;
+    height: 833px;
+    width: 833px;
+    background-color: #56C356;
+    border-radius: 50%;
+    opacity:0.8;
+}
+
+.circle2 {
+    position: absolute;
+    height: 833px;
+    width: 833px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 110px;
+    left: 390px;
+}
+
+.shapes {
+    position: absolute;
+    left: 35em;
+}
+
+/*-------------------------------------------------------------------------*/

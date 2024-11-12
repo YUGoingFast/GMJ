@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block title %}
+Register / Log In
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Login Page </title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    </head>
+
+    <body>
+        <form action="/register-login" method="POST" id="register-form">
+
+            <h2>Register</h2>
+            <div class="emailRegister-container">
+                <input type="text" name="email" placeholder="Email...">
+            </div>
+            <input type="text" name="fname" placeholder="First Name...">
+            <input type="text" name="sname" placeholder="Surname...">
+            <input type="text" name="password" placeholder="Password...">
+
+            <button type="submit" name="action" value="register">Submit</button>
+            </div>
+
+        </form>
+
+        <form action="/register-login" method="POST" id="login-form">
+
+            <h2>Log In</h2>
+            <div class="email-container">
+                <input type="text" name="email" placeholder="Email address...">
+            </div>
+
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Password...">
+            </div>
+            
+            <div class="submit-button">
+            <button type="submit" name="action" name="login">Submit</button>
+        </form>
+        
+    </body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="static/nav.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            
+                <div class="Left">
+                    <a href="/how-it-works" class="HIW-link">
+                        How It Works
+                    </a>
+
+                    <a href="/find-tutor" class="FAT-link">
+                        Find A Tutor
+                    </a>
+
+                    <a href="/become-tutor" class="BAT-link">
+                        Become A Tutor
+                    </a>
+                </div>
+            
+            <a href="/">
+                <img src="static/logo.png" alt="logo" class="logo">
+            </a>
+
+            <div class="Right">
+                <a href="/help" class="help-link">
+                    Help
+                </a>
+            
+                <a href="/register-login" class="reg-log-link">
+                <button> Register / Log In </button>
+                </a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="body-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>
