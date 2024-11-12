@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from db import add_user, add_tutor, verify_user
+from db import add_user, add_tutor, verify_user, verify_tutor
 app = Flask(__name__)
 app.secret_key = 'hello123'
 
