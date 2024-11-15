@@ -26,6 +26,9 @@ def BAT():
             password = request.form['password']
             if email == '' or fname == '' or sname == '' or password == '':
                 return "Missing credentials"
+            elif email.isspace() or fname.isspace() or sname.isspace() or password.isspace():
+                return "Missing Credentials"
+
             add_tutor(fname, sname, email, password)
     return render_template("become-a-tutor.html")
 
@@ -45,14 +48,22 @@ def register_login():
             password = request.form['password']
             if email == '' or fname == '' or sname == '' or password =='':
                 return "Missing credentials"
+            elif email.isspace() or fname.isspace() or sname.isspace() or password.isspace():
+                return "Missing Credentials"
+            
             add_user(fname, sname, email, password)
             return render_template("reg_log.html")
         elif action == 'login':
             email = request.form['email']
             password = request.form['password']
             if verify_user(email, password):
+                session['email'] == email
+                session['password']== password
+                return redirect(url_for('home'))
+            elif verify_tutor(email, password):
                 session['email'] = email
-                return redirect(url_for('/home'))
+                session['password'] = password
+                return redirect(url_for('home'))
             else:
                 return "Invalid credentials"
     return render_template("reg_log.html")

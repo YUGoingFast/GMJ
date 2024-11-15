@@ -12,7 +12,7 @@ def get_db_connection():
 def add_user(fname, sname, email, password):
     conn = sqlite3.connect('GMJ.db')
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO users VALUES (FirstName, Surname, Email, Password) VALUES (?, ?, ?, ?)", (fname, sname, email, password))
+    cursor.execute("INSERT INTO users (FirstName, Surname, Email, Password) VALUES (?, ?, ?, ?)", (fname, sname, email, password))
     conn.commit()
     conn.close()
 
@@ -22,6 +22,7 @@ def verify_user(email, password):
     cursor.execute("SELECT * FROM users WHERE Email = ? AND password = ?", (email, password))
     user = cursor.fetchone()
     conn.close()
+    return user is not None
 
 def add_tutor(fname, sname, email, password):
     conn = sqlite3.connect('GMJ.db')
@@ -34,5 +35,6 @@ def verify_tutor(email, password):
     conn = sqlite3.connect('GMJ.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM tutors WHERE Email = ? AND password = ?", (email, password))
-    conn.commit()
+    tutor = cursor.fetchone()
     conn.close()
+    return tutor is not None
