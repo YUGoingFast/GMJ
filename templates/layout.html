@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
@@ -30,10 +31,18 @@
                 <a href="/help" class="help-link">
                     Help
                 </a>
-            
-                <a href="/register-login" class="reg-log-link">
-                <button> Register / Log In </button>
-                </a>
+                
+                {% if session['email'] %}
+                    <a href="/logout" class="logout-link">
+                        <button> Logout </button>
+                    </a>
+
+                {% else %}
+                    <a href="/register-login" class="reg-log-link">
+                        <button> Register / Log In </button>
+                    </a>
+                {% endif %}
+
             </div>
         </ul>
     </nav>

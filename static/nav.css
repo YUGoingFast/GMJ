@@ -79,7 +79,7 @@ button {
 /*Home page */
 
 .circle1 {
-    position:relative;
+    position:absolute;
     height: 833px;
     width: 833px;
     background-color: #56C356;
