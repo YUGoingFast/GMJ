@@ -18,16 +18,19 @@ def home():
 # Render how it works page
 @app.route("/how-it-works")
 def HIW():
-    if session.get("user"):
-        user = session["user"]
-        return render_template("how-it-works.html", user=user)
-    return render_template("how-it-works.html")
+    if session.get('user'):
+        return render_template("how-it-works.html", user = session['user'])
+    else:
+        return render_template("how-it-works.html")
 
 #------------------------------------------------------------------------------------------------------
 # Render the find a tutor page
 @app.route("/find-tutor")
 def FAT():
-    return render_template("find-a-tutor.html")
+    if session.get('user'):
+        return render_template("find-a-tutor.html", user = session['user'])
+    else:
+        return render_template("find-a-tutor.html")
 
 #------------------------------------------------------------------------------------------------------
 # Render the Become A Tutor Page
@@ -61,7 +64,6 @@ def help():
 @app.route("/register-login", methods=['GET', 'POST'])
 def register_login():
     error = None
-    loggedIn = False
 
     if request.method == 'POST':
         action = request.form['action']
@@ -80,10 +82,13 @@ def register_login():
             elif email.isspace() or fname.isspace() or sname.isspace() or password.isspace():
                 error = "Missing Credentials"
                 return render_template("reg_log.html", error = error)
+            elif '@' not in email:
+                error = "Email not valid"
+                return render_template("reg_log.html", error = error)
             # Run the function in db.py that will add the user information into the database
             add_user(type, fname, sname, email, password)
             return render_template("reg_log.html")
-
+        
         elif action == 'login':
             email = request.form['email']
             password = request.form['password']
